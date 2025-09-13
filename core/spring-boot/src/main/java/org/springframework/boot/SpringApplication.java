@@ -316,6 +316,7 @@ public class SpringApplication {
 			refreshContext(context);
 			afterRefresh(context, applicationArguments);
 			Duration timeTakenToStarted = startup.started();
+			// start success log info :process running for
 			if (this.properties.isLogStartupInfo()) {
 				new StartupInfoLogger(this.mainApplicationClass, environment).logStarted(getApplicationLog(), startup);
 			}
@@ -323,6 +324,7 @@ public class SpringApplication {
 			callRunners(context, applicationArguments);
 		}
 		catch (Throwable ex) {
+			// start fail log info :APPLICATION FAILED TO START
 			throw handleRunFailure(context, ex, listeners);
 		}
 		try {
